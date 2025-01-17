@@ -1,4 +1,4 @@
-package com.bsoft.fruitier_native.screens
+package com.bsoft.fruitier_native
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,6 +8,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.bsoft.fruitier_native.screens.Home
+import com.bsoft.fruitier_native.screens.Splash
 import com.bsoft.fruitier_native.ui.theme.FruitierNativeTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +29,16 @@ class MainActivity : ComponentActivity() {
 fun Main(){
     FruitierNativeTheme {
         Surface (modifier = Modifier.fillMaxSize()) {
+            val navController = rememberNavController()
 
+            NavHost(navController = navController, startDestination = "splash") {
+                composable("splash") {
+                    Splash()
+                }
+                composable("home") {
+                    Home()
+                }
+            }
         }
     }
 }

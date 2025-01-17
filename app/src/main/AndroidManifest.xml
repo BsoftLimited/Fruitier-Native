@@ -13,29 +13,13 @@
         android:theme="@style/Theme.FruitierNative"
         tools:targetApi="31">
         <activity
-            android:name=".screens.Splash"
+            android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.FruitierNative">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".screens.MainActivity"
-            android:theme="@style/Theme.FruitierNative">
-        </activity>
-        <activity
-            android:name=".screens.InfoActivity"
-            android:theme="@style/Theme.FruitierNative">
-        </activity>
-        <activity
-            android:name=".screens.SignUpActivity"
-            android:theme="@style/Theme.FruitierNative">
-        </activity>
-        <activity
-            android:name=".screens.LoginActivity"
-            android:theme="@style/Theme.FruitierNative">
         </activity>
     </application>
 
