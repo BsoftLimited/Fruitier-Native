@@ -6,8 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -24,6 +27,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+val LocalNavController = compositionLocalOf <NavController>{
+    error("No NavController found!")
+}
+
 @Preview(showBackground = true, device = "id:pixel_8")
 @Composable
 fun Main(){
@@ -31,12 +38,14 @@ fun Main(){
         Surface (modifier = Modifier.fillMaxSize()) {
             val navController = rememberNavController()
 
-            NavHost(navController = navController, startDestination = "splash") {
-                composable("splash") {
-                    Splash()
-                }
-                composable("home") {
-                    Home()
+            CompositionLocalProvider(LocalNavController provides navController) {
+                NavHost(navController = navController, startDestination = "splash") {
+                    composable("splash") {
+                        Splash()
+                    }
+                    composable("home") {
+                        Home()
+                    }
                 }
             }
         }

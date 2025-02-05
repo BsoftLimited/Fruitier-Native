@@ -11,7 +11,7 @@ data class User(val name: String, val surname: String, val email: String);
 data class SettingData(val user: User? = null);
 
 class SettingsModel: ViewModel(){
-     val __data: MutableStateFlow<SettingData> = MutableStateFlow(SettingData())
+     private val __data: MutableStateFlow<SettingData> = MutableStateFlow(SettingData())
      val data: StateFlow<SettingData> = __data.asStateFlow()
 
      fun login(user: User){

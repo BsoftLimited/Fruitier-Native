@@ -32,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import com.bsoft.fruitier_native.LocalNavController
 import com.bsoft.fruitier_native.R
 
 class ShowCase(val image: Int, val title: String);
@@ -39,6 +40,8 @@ class ShowCase(val image: Int, val title: String);
 @Preview(showBackground = true, device = "id:pixel_8")
 @Composable
 fun SplashSlider(){
+    val navController = LocalNavController.current
+
     val images = listOf(
         ShowCase(R.drawable.fashion_shop_rafiki_1, "Choose Products"),
         ShowCase(R.drawable.sales_consulting_pana_1, "Make Payment"),
@@ -48,6 +51,8 @@ fun SplashSlider(){
     fun next(){
         if(current < images.size - 1){
             current+= 1;
+        }else{
+            navController.navigate("home")
         }
     }
 
@@ -75,7 +80,7 @@ fun SplashSlider(){
         }
         Row (horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()){
             TextButton(onClick = { prev() }) {
-                Text("prev", fontSize = TextUnit(18f, type = TextUnitType.Sp), fontWeight = FontWeight.Bold)
+                Text("prev", color = Color.Gray, fontSize = TextUnit(18f, type = TextUnitType.Sp), fontWeight = FontWeight.Bold)
             }
             Row(horizontalArrangement = Arrangement.Center) {
                 val firstDot =  if(current == 0 ) { 50.dp } else { 10.dp };
@@ -89,7 +94,7 @@ fun SplashSlider(){
                 Surface( color = Color.DarkGray,  shape = RoundedCornerShape(3.dp), modifier = Modifier.size(width = thirdDot, height = 6.dp)){}
             }
             TextButton(onClick = { next() }) {
-                Text("next", fontSize = TextUnit(18f, type = TextUnitType.Sp), fontWeight = FontWeight.Bold)
+                Text("next", color = MaterialTheme.colorScheme.primary, fontSize = TextUnit(18f, type = TextUnitType.Sp), fontWeight = FontWeight.Bold)
             }
         }
     }
