@@ -5,6 +5,7 @@ plugins {
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     alias(libs.plugins.kotlin.compose)
+    kotlin("plugin.serialization") version "2.0.20"
 }
 
 android {
@@ -78,6 +79,12 @@ dependencies {
     // Hilt Navigation Compose
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
+
+    implementation(libs.bom)
+    implementation(libs.postgrest.kt)
+    implementation(libs.ktor.client.android)
+    implementation("io.github.jan-tennert.supabase:auth-kt")
+    implementation("io.github.jan-tennert.supabase:realtime-kt")
 }
 
 kapt {
