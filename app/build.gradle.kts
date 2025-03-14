@@ -83,8 +83,8 @@ dependencies {
     implementation(libs.bom)
     implementation(libs.postgrest.kt)
     implementation(libs.ktor.client.android)
-    implementation("io.github.jan-tennert.supabase:auth-kt")
-    implementation("io.github.jan-tennert.supabase:realtime-kt")
+    implementation(libs.auth.kt)
+    implementation(libs.realtime.kt)
 }
 
 kapt {
