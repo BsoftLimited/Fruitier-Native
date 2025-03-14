@@ -1,4 +1,4 @@
-package com.bsoft.fruitier_native.screens
+package com.bsoft.fruitier_native.ui.screens
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
@@ -8,7 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.bsoft.fruitier_native.ui.theme.FruitierNativeTheme
 
 @Composable
-fun SignUp(){
+fun Login(){
     Surface (modifier = Modifier.fillMaxSize()) {
 
     }
@@ -16,8 +16,8 @@ fun SignUp(){
 
 @Preview(showBackground = true, device = "id:pixel_8")
 @Composable
-fun SignUpPreview(){
+fun LoginPreview(){
     FruitierNativeTheme {
-        SignUp()
+        Login()
     }
 }

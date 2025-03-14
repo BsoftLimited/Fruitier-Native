@@ -1,4 +1,4 @@
-package com.bsoft.fruitier_native.pages
+package com.bsoft.fruitier_native.ui.pages
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -21,7 +21,7 @@ import com.bsoft.fruitier_native.R
 
 @Preview(showBackground = true, device = "id:pixel_8")
 @Composable
-fun SplashDefaulth(){
+fun SplashDefault(){
     Surface (modifier = Modifier.fillMaxSize()) {
         Box(contentAlignment = Alignment.Center){
             Image(imageVector = ImageVector.vectorResource(id = R.drawable.logo),

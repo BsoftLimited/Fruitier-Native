@@ -1,23 +1,23 @@
-package com.bsoft.fruitier_native.screens
+package com.bsoft.fruitier_native.ui.screens
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.bsoft.fruitier_native.pages.SplashDefaulth
-import com.bsoft.fruitier_native.pages.SplashSlider
-import com.bsoft.fruitier_native.services.SettingsModel
+import com.bsoft.fruitier_native.ui.pages.SplashDefault
+import com.bsoft.fruitier_native.ui.pages.SplashSlider
+import com.bsoft.fruitier_native.viewmodels.SettingsModel
 import com.bsoft.fruitier_native.ui.theme.FruitierNativeTheme
 
 @Composable
 fun Splash(settingModel: SettingsModel = viewModel()){
-    val settingState by settingModel.data.collectAsState()
+    val settingState by settingModel.state.collectAsState()
 
-    if(settingState.user == null){
+    if(settingState.firstVisit){
         SplashSlider()
     }else{
-        SplashDefaulth()
+        SplashDefault()
     }
 }
 

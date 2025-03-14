@@ -1,37 +1,24 @@
-package com.bsoft.fruitier_native
+package com.bsoft.fruitier_native.ui
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.bsoft.fruitier_native.screens.Home
-import com.bsoft.fruitier_native.screens.Splash
+import com.bsoft.fruitier_native.ui.screens.Home
+import com.bsoft.fruitier_native.ui.screens.Splash
 import com.bsoft.fruitier_native.ui.theme.FruitierNativeTheme
-
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Main()
-        }
-    }
-}
+import com.bsoft.fruitier_native.utils.MobilePreview
 
 val LocalNavController = compositionLocalOf <NavController>{
     error("No NavController found!")
 }
 
-@Preview(showBackground = true, device = "id:pixel_8")
 @Composable
 fun Main(){
     FruitierNativeTheme {
@@ -50,4 +37,10 @@ fun Main(){
             }
         }
     }
+}
+
+@MobilePreview
+@Composable
+fun MainPreview(){
+    Main()
 }

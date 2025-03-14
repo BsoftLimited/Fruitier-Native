@@ -1,11 +1,6 @@
-package com.bsoft.fruitier_native.screens
+package com.bsoft.fruitier_native.ui.screens
 
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.Favorite
-import androidx.compose.material.icons.twotone.Settings
-import androidx.compose.material.icons.twotone.ShoppingCart
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -27,10 +22,10 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.bsoft.fruitier_native.R
-import com.bsoft.fruitier_native.pages.home.Explore
-import com.bsoft.fruitier_native.pages.home.Orders
-import com.bsoft.fruitier_native.pages.home.Settings
-import com.bsoft.fruitier_native.pages.home.WishList
+import com.bsoft.fruitier_native.ui.pages.home.Explore
+import com.bsoft.fruitier_native.ui.pages.home.Orders
+import com.bsoft.fruitier_native.ui.pages.home.Settings
+import com.bsoft.fruitier_native.ui.pages.home.WishList
 import com.bsoft.fruitier_native.ui.theme.FruitierNativeTheme
 
 enum class AdaptiveDestinations(val title: String, val icon: Int){
