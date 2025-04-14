@@ -7,15 +7,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.bsoft.fruitier_native.ui.theme.FruitierNativeTheme
+import com.bsoft.fruitier_native.utils.MobilePreview
+import com.bsoft.fruitier_native.viewmodels.AuthViewModel
 
 @Composable
-fun Login(){
+fun Login(authViewModel: AuthViewModel? = null){
     Surface (modifier = Modifier.fillMaxSize()) {
         Text("dvfjvf")
     }
 }
 
-@Preview(showBackground = true, device = "id:pixel_8")
+@MobilePreview
 @Composable
 fun LoginPreview(){
     FruitierNativeTheme {

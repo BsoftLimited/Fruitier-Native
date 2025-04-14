@@ -18,10 +18,11 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bsoft.fruitier_native.R
+import com.bsoft.fruitier_native.ui.theme.FruitierNativeTheme
+import com.bsoft.fruitier_native.utils.MobilePreview
 
-@Preview(showBackground = true, device = "id:pixel_8")
 @Composable
-fun SplashDefault(){
+fun SplashDefault(message: String = "Loading, please wait ..."){
     Surface (modifier = Modifier.fillMaxSize()) {
         Box(contentAlignment = Alignment.Center){
             Image(imageVector = ImageVector.vectorResource(id = R.drawable.logo),
@@ -32,8 +33,16 @@ fun SplashDefault(){
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 CircularProgressIndicator(strokeWidth = 2.dp)
                 Spacer(Modifier.height(8.dp))
-                Text("Loading, please wait ...")
+                Text(message)
             }
         }
+    }
+}
+
+@MobilePreview
+@Composable
+private fun SplashDefaultPreview(){
+    FruitierNativeTheme {
+        SplashDefault()
     }
 }

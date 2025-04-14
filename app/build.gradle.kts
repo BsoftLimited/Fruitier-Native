@@ -2,8 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
     alias(libs.plugins.kotlin.compose)
     kotlin("plugin.serialization") version "2.0.20"
 }
@@ -75,18 +73,14 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
 
-    implementation(libs.hilt.android)
-    // Hilt Navigation Compose
-    implementation(libs.androidx.hilt.navigation.compose)
-    kapt(libs.hilt.android.compiler)
-
     implementation(libs.bom)
     implementation(libs.postgrest.kt)
     implementation(libs.ktor.client.android)
     implementation(libs.auth.kt)
     implementation(libs.realtime.kt)
-}
+    implementation(libs.kotlinx.serialization.json)
 
-kapt {
-    correctErrorTypes = true
+    implementation(libs.androidx.ui.text.google.fonts)
+
+    implementation(libs.androidx.datastore.preferences)
 }
