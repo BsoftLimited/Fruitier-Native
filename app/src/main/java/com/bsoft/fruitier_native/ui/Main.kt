@@ -4,12 +4,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -20,8 +17,7 @@ import com.bsoft.fruitier_native.ui.screens.Info
 import com.bsoft.fruitier_native.ui.screens.Login
 import com.bsoft.fruitier_native.ui.screens.SignUp
 import com.bsoft.fruitier_native.ui.screens.Splash
-import com.bsoft.fruitier_native.ui.theme.FruitierNativeTheme
-import com.bsoft.fruitier_native.utils.MobilePreview
+import com.bsoft.fruitier_native.utils.FontsProviderWrapper
 import com.bsoft.fruitier_native.utils.customViewModelFactory
 import com.bsoft.fruitier_native.viewmodels.AuthViewModel
 import com.bsoft.fruitier_native.viewmodels.SettingsViewModel
@@ -43,20 +39,22 @@ fun Main(){
     Surface (modifier = Modifier.fillMaxSize()) {
         val navController = rememberNavController()
 
-        CompositionLocalProvider(LocalNavController provides navController) {
-            NavHost(navController = navController, startDestination = "splash") {
-                composable("splash") {
-                    Splash(settingsViewModel = settingsViewModel, authViewModel = authViewModel)
-                }
-                composable("home"){
-                    Home(settingsViewModel = settingsViewModel, authViewModel = authViewModel)
-                }
-                composable("info", content = { Info() })
-                composable("login"){
-                    Login(authViewModel = authViewModel)
-                }
-                composable("signup"){
-                    SignUp(authViewModel = authViewModel)
+        FontsProviderWrapper{
+            CompositionLocalProvider(LocalNavController provides navController) {
+                NavHost(navController = navController, startDestination = "splash") {
+                    composable("splash") {
+                        Splash(settingsViewModel = settingsViewModel, authViewModel = authViewModel)
+                    }
+                    composable("home"){
+                        Home(settingsViewModel = settingsViewModel, authViewModel = authViewModel)
+                    }
+                    composable("info", content = { Info() })
+                    composable("login"){
+                        Login(authViewModel = authViewModel)
+                    }
+                    composable("signup"){
+                        SignUp(authViewModel = authViewModel)
+                    }
                 }
             }
         }

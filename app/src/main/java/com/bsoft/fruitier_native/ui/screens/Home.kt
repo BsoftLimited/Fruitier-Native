@@ -41,15 +41,16 @@ import com.bsoft.fruitier_native.ui.pages.home.Orders
 import com.bsoft.fruitier_native.ui.pages.home.Settings
 import com.bsoft.fruitier_native.ui.pages.home.WishList
 import com.bsoft.fruitier_native.ui.theme.FruitierNativeTheme
+import com.bsoft.fruitier_native.utils.FontsProviderWrapper
 import com.bsoft.fruitier_native.utils.MobilePreview
 import com.bsoft.fruitier_native.viewmodels.AuthViewModel
 import com.bsoft.fruitier_native.viewmodels.SettingsViewModel
 
 enum class AdaptiveDestinations(val title: String, val icon: Int){
     Explore(title = "Explore", icon = R.drawable.twotone_shopping_cart_24),
-    WishList(title = "Wishlist", icon = R.drawable.twotone_favorite_24),
-    Orders(title = "Orders", icon = R.drawable.twotone_delivery_dining_24),
-    Settings(title = "Settings", icon = R.drawable.twotone_settings_24)
+    WishList(title = "Wishlist", icon = R.drawable.heart),
+    Orders(title = "Orders", icon = R.drawable.truck),
+    Settings(title = "Settings", icon = R.drawable.settings)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -91,7 +92,7 @@ fun Home(authViewModel: AuthViewModel? = null, settingsViewModel: SettingsViewMo
                 }  else {
                     item(onClick = { currentDestination = it },
                         modifier = Modifier.padding(4.dp),
-                        icon = { Icon(imageVector = ImageVector.vectorResource(it.icon), contentDescription = "") },
+                        icon = { Icon(modifier = Modifier.size(30.dp), imageVector = ImageVector.vectorResource(it.icon), contentDescription = "") },
                         label = { Text(text = it.title) },
                         colors = colors,
                         selected = it.title == currentDestination.title)
@@ -114,7 +115,9 @@ fun Home(authViewModel: AuthViewModel? = null, settingsViewModel: SettingsViewMo
 @MobilePreview
 @Composable
 fun HomePreview(){
-    FruitierNativeTheme {
-        Home()
+    FontsProviderWrapper {
+        FruitierNativeTheme {
+            Home()
+        }
     }
 }
